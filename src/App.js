@@ -8,11 +8,16 @@ export default function App() {
   return (
     <>
       <Header />
-      <Routes>
-        <Route path="/" element={<Books />} />
-        <Route path="categories" element={<Categories />} />
-        <Route path="*" element={<NoMatch />} />
-      </Routes>
+      <main className="w-full h-full">
+        <Routes>
+          <Route path="/" element={<Books />} />
+          <Route
+            path="categories"
+            element={<Categories />}
+          />
+          <Route path="*" element={<NoMatch />} />
+        </Routes>
+      </main>
     </>
   );
 }
