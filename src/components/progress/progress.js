@@ -13,8 +13,8 @@ export default function Progress(props) {
   }, [percent]);
 
   return (
-    <div className="flex gap-2 h-full">
-      <div className="h-20 w-20 flex items-center">
+    <div className="flex gap-2 h-full justify-center items-center">
+      <div className="h-20 w-20 flex items-center justify-center">
         <CircularProgressbar
           circleRatio={1}
           value={percentage}
