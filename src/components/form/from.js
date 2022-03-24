@@ -3,8 +3,12 @@ import Button from '../button/button';
 
 export default function Form() {
   const [bookTitle, setBookTitle] = useState('');
+  const [selected, setSelected] = useState('');
   const handleChange = (e) => {
     setBookTitle(e.target.value);
+  };
+  const handleSelected = (e) => {
+    setSelected(e.target.value);
   };
   return (
     <form
@@ -33,8 +37,12 @@ export default function Form() {
             name="category"
             id="category"
             className="h-full w-full text-center shadow-inner rounded"
+            value={selected}
+            onChange={handleSelected}
+            onBlur={handleSelected}
+            placeholder="Book title"
           >
-            <option value="" disabled selected>
+            <option disabled value="">
               Category
             </option>
             <option value="action">Action</option>
