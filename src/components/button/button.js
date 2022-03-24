@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export default function Button({ ...props }) {
   return (
     <button
-      className={`text-white bg-sky-700 rounded ${props.twClasses}`}
+      className={`text-white bg-sky-700 rounded w-fit ${props.twClasses}`}
       type="button"
       onClick={props.handleClick}
     >
