@@ -4,7 +4,7 @@ import { ImUser } from 'react-icons/im';
 
 export default function Header() {
   return (
-    <header className="flex justify-between p-6 w-full">
+    <header className="flex justify-between p-6 w-full shadow-md">
       <nav className="flex gap-6">
         <Link to="/">
           <h1 className="h-full flex items-center text-3xl text-sky-700">
@@ -24,7 +24,7 @@ export default function Header() {
       </nav>
       <button
         type="button"
-        className="h-full flex items-center p-3 text-sky-700"
+        className="h-full text-3xl flex items-center p-3 text-sky-700 rounded-full border-2 border-gray-300"
       >
         <ImUser />
       </button>
