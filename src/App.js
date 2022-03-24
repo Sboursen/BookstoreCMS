@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import Books from './routes/books/books';
+import Categories from './routes/categories/categories';
+import NoMatch from './routes/no-match/no-match';
+import Header from './components/header/header';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <main className="w-full h-full">
+        <Routes>
+          <Route path="/" element={<Books />} />
+          <Route
+            path="categories"
+            element={<Categories />}
+          />
+          <Route path="*" element={<NoMatch />} />
+        </Routes>
+      </main>
+    </>
   );
 }
-
-export default App;
