@@ -1,9 +1,10 @@
 import React from 'react';
 import BookCard from '../../components/book-card/book-card';
+import Form from '../../components/form/from';
 
 export default function Books() {
   return (
-    <main className="flex flex-col">
+    <main className="flex flex-col mb-24 bg-[#fafafa]">
       <BookCard
         chapter="Chapter 17"
         percent={64}
@@ -25,6 +26,7 @@ export default function Books() {
         title="Capital in the Twenty-First Century"
         author="Suzanne Collins"
       />
+      <Form />
     </main>
   );
 }
