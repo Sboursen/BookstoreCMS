@@ -4,7 +4,9 @@ import BookInfo from '../book-info/book-info';
 import BookProgress from '../book-progress/book-progress';
 
 export default function BookCard(props) {
-  const { percent, chapter, genre, title, author } = props;
+  const {
+    percent, chapter, genre, title, author,
+  } = props;
   return (
     <section className="book-card flex justify-between rounded-sm p-12 mx-8 my-4 shadow-md">
       <BookInfo

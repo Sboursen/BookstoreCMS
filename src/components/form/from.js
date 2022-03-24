@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '../button/button';
 
 export default function Form() {
+  const [bookTitle, setBookTitle] = useState('');
+  const handleChange = (e) => {
+    setBookTitle(e.target.value);
+  };
   return (
     <form
       action="submit"
@@ -10,14 +14,17 @@ export default function Form() {
       <h2 className="text-xl font-bold text-gray-500 ">
         ADD NEW BOOK
       </h2>
-      <div className="flex flex-row justify-between items-center text-gray-400">
+      <div className="flex flex-row justify-between items-center">
         <label htmlFor="title" className="h-8 w-1/2">
           <input
             className="h-full w-full shadow-inner px-6 border-2 rounded"
             type="text"
             name="title"
             id="book-title"
+            value={bookTitle}
             placeholder="Book title"
+            onChange={handleChange}
+            onBlur={handleChange}
             required
           />
         </label>
