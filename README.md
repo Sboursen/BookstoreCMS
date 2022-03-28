@@ -12,8 +12,8 @@
 
 ## Milestones
 
-- [ ] Milestone 1: **Initialize project with components**
-- [ ] Milestone 2: **Add reducers and actions**
+- [x] Milestone 1: **Initialize project with components**
+- [x] Milestone 2: **Add reducers and actions**
 - [ ] Milestone 3: **Use Redux in React components**
 - [ ] Milestone 4: **Connect to API**
 - [ ] Milestone 5: **Custom Styling**
