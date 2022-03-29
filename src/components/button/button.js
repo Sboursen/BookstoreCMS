@@ -5,7 +5,7 @@ export default function Button({ ...props }) {
   return (
     <button
       className={`text-white bg-sky-700 rounded w-fit ${props.twClasses}`}
-      type="button"
+      type={props.type === 'submit' ? 'submit' : 'button'}
       onClick={props.handleClick}
     >
       {props.text}
@@ -14,11 +14,13 @@ export default function Button({ ...props }) {
 }
 
 Button.defaultProps = {
+  type: 'button',
   handleClick: () => {},
   twClasses: 'px-5 py-1 text-lg',
 };
 
 Button.propTypes = {
+  type: PropTypes.string,
   text: PropTypes.string.isRequired,
   twClasses: PropTypes.string,
   handleClick: PropTypes.func,
