@@ -8,44 +8,61 @@ const isValid = (state) => state && state !== 'Category';
 
 export default function Form() {
   const [bookTitle, setBookTitle] = useState('');
-  const [selected, setSelected] = useState('');
-  const [valid, setValid] = useState([true, true]);
+  const [bookAuthor, setBookAuthor] = useState('');
+  const [category, setCategory] = useState('');
+  const [valid, setValid] = useState([true, true, true]);
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
-    setBookTitle(e.target.value);
+    if (e.target.id === 'book-title') {
+      setBookTitle(e.target.value);
+    } else if (e.target.id === 'book-author') {
+      setBookAuthor(e.target.value);
+    }
   };
 
-  const handleSelected = (e) => {
-    setSelected(e.target.value);
+  const handleCategory = (e) => {
+    setCategory(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!isValid(selected) && !isValid(bookTitle)) {
-      setBookTitle('');
-      setSelected('');
-      setValid([false, false]);
-    } else if (!isValid(bookTitle)) {
-      setBookTitle('');
-      setValid([false, true]);
-    } else if (!isValid(selected)) {
-      setSelected('');
-      setValid([true, false]);
+    if (
+      !isValid(category)
+      || !isValid(bookTitle)
+      || !isValid(bookAuthor)
+    ) {
+      const validity = [];
+      [
+        [bookTitle, setBookTitle],
+        [bookAuthor, setBookAuthor],
+        [category, setCategory],
+      ].forEach((e) => {
+        if (!isValid(e[0])) {
+          e[1]('');
+          validity.push(false);
+        } else {
+          validity.push(true);
+        }
+      });
+      setValid(validity);
     } else {
       const newBook = {
         id: uuidv4(),
         chapter: 'Chapter 0',
         percent: 0,
-        genre: `${selected}`,
+        genre: `${category}`,
         title: `${bookTitle}`,
-        author: 'Suzanne Collins',
+        author: `${bookAuthor}`,
       };
 
       dispatch(addBook(newBook));
+      setBookTitle('');
+      setBookAuthor('');
+      setCategory('');
     }
     setTimeout(() => {
-      setValid([true, true]);
+      setValid([true, true, true]);
     }, 2000);
   };
 
@@ -59,7 +76,7 @@ export default function Form() {
         ADD NEW BOOK
       </h2>
       <div className="flex flex-row justify-between items-center">
-        <label htmlFor="title" className="h-8 w-1/2">
+        <label htmlFor="title" className="h-8 w-1/5">
           <input
             className={`h-full w-full shadow-inner px-6 border-2 rounded${
               valid[0] ? '' : 'border-2 border-red-500'
@@ -73,16 +90,30 @@ export default function Form() {
             onBlur={handleChange}
           />
         </label>
-        <label htmlFor="category" className="h-8 w-1/4">
+        <label htmlFor="author" className="h-8 w-1/5">
+          <input
+            className={`h-full w-full shadow-inner px-6 border-2 rounded${
+              valid[1] ? '' : 'border-2 border-red-500'
+            }`}
+            type="text"
+            name="author"
+            id="book-author"
+            value={bookAuthor}
+            placeholder="Book author"
+            onChange={handleChange}
+            onBlur={handleChange}
+          />
+        </label>
+        <label htmlFor="category" className="h-8 w-1/5">
           <select
             name="category"
             id="category"
             className={`h-full w-full text-center shadow-inner rounded  ${
-              valid[1] ? '' : 'border-2 border-red-500'
+              valid[2] ? '' : 'border-2 border-red-500'
             }`}
-            value={selected}
-            onChange={handleSelected}
-            onBlur={handleSelected}
+            value={category}
+            onChange={handleCategory}
+            onBlur={handleCategory}
             placeholder="Book title"
           >
             <option disabled value="">
