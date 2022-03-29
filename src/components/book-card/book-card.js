@@ -5,11 +5,12 @@ import BookProgress from '../book-progress/book-progress';
 
 export default function BookCard(props) {
   const {
-    percent, chapter, genre, title, author,
+    id, percent, chapter, genre, title, author,
   } = props;
   return (
     <section className="book-card flex justify-between rounded-sm p-12 mx-8 my-4 shadow-md">
       <BookInfo
+        id={id}
         genre={genre}
         title={title}
         author={author}
@@ -20,6 +21,7 @@ export default function BookCard(props) {
 }
 
 BookCard.propTypes = {
+  id: PropTypes.string.isRequired,
   percent: PropTypes.number.isRequired,
   chapter: PropTypes.string.isRequired,
   genre: PropTypes.string.isRequired,

@@ -48,7 +48,7 @@ export default function bookReducer(
     case REMOVE_BOOK:
       return [
         ...state.filter(
-          (book) => Number(book.id) !== Number(action.id),
+          (book) => String(book.id) !== String(action.id),
         ),
       ];
     default:

@@ -7,13 +7,13 @@ export default function Books() {
   const books = useSelector((store) => store.books);
 
   const bookList = books.map((book) => {
-    const {
-      id, chapter, percent, genre, title, author,
-    } = book;
+    const { id, chapter, percent, genre, title, author } =
+      book;
 
     return (
       <BookCard
         key={id}
+        id={id}
         chapter={chapter}
         percent={percent}
         genre={genre}
