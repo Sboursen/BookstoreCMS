@@ -4,7 +4,9 @@ import { useDispatch } from 'react-redux';
 import { removeBook } from '../../redux/books/books';
 
 export default function BookInfo(props) {
-  const { genre, title, author, id } = props;
+  const {
+    genre, title, author, id,
+  } = props;
   const dispatch = useDispatch();
 
   const handleRemove = () => {
