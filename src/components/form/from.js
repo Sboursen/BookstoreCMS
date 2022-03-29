@@ -26,15 +26,12 @@ export default function Form() {
       setBookTitle('');
       setSelected('');
       setValid([false, false]);
-      console.log('both');
     } else if (!isValid(bookTitle)) {
       setBookTitle('');
       setValid([false, true]);
-      console.log('title');
     } else if (!isValid(selected)) {
       setSelected('');
       setValid([true, false]);
-      console.log('selected');
     } else {
       const newBook = {
         id: uuidv4(),
