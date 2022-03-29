@@ -15,17 +15,26 @@ export default function BookInfo(props) {
         </span>
       </div>
       <div className="flex gap-2 justify-center items-center text-gray-300">
-        <span className="text-sky-600 cursor-pointer">
+        <button
+          type="button"
+          className="text-sky-600 cursor-pointer"
+        >
           Comments
-        </span>
+        </button>
         <span>|</span>
-        <span className="text-sky-600 cursor-pointer">
+        <button
+          type="button"
+          className="text-sky-600 cursor-pointer"
+        >
           Remove
-        </span>
+        </button>
         <span>|</span>
-        <span className="text-sky-600 cursor-pointer">
+        <button
+          type="button"
+          className="text-sky-600 cursor-pointer"
+        >
           Edit
-        </span>
+        </button>
       </div>
     </div>
   );
