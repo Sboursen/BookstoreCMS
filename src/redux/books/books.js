@@ -42,6 +42,31 @@ export function getBooksFailure(error) {
   };
 }
 
+export default function bookReducer(
+  state = initialState,
+  action,
+) {
+  switch (action.type) {
+    case GET_BOOKS_REQUEST:
+      return { ...state, loading: true };
+
+    case GET_BOOKS_SUCCESS:
+      return {
+        loading: false,
+        bookList: action.payload,
+        error: '',
+      };
+    case GET_BOOKS_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+}
+
 // export function addBook(book) {
 //   return { type: ADD_BOOK, book };
 // }
