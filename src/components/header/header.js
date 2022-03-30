@@ -5,9 +5,9 @@ import { ImUser } from 'react-icons/im';
 export default function Header() {
   return (
     <header className="flex justify-between p-6 w-full shadow-md">
-      <nav className="flex gap-6">
+      <nav className="flex gap-6 flex-col md:flex-row">
         <Link to="/">
-          <h1 className="h-full flex items-center text-3xl text-sky-700">
+          <h1 className="h-full flex  items-center text-3xl text-sky-700">
             Bookstore CMS
           </h1>
         </Link>
