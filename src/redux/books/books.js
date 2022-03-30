@@ -8,12 +8,9 @@ const ADD_BOOK_REQUEST = 'bookstore-cms/books/ADD_REQUEST';
 const ADD_BOOK_SUCCESS = 'bookstore-cms/books/ADD_SUCCESS';
 const ADD_BOOK_FAILURE = 'bookstore-cms/books/ADD_FAILURE';
 
-const DELETE_BOOK_REQUEST =
-  'bookstore-cms/books/DELETE_REQUEST';
-const DELETE_BOOK_SUCCESS =
-  'bookstore-cms/books/DELETE_SUCCESS';
-const DELETE_BOOK_FAILURE =
-  'bookstore-cms/books/DELETE_FAILURE';
+const DELETE_BOOK_REQUEST = 'bookstore-cms/books/DELETE_REQUEST';
+const DELETE_BOOK_SUCCESS = 'bookstore-cms/books/DELETE_SUCCESS';
+const DELETE_BOOK_FAILURE = 'bookstore-cms/books/DELETE_FAILURE';
 
 const initialState = {
   loading: false,
@@ -49,9 +46,7 @@ export function getBooks() {
       .then((data) => {
         dispatch(getBooksSuccess(data));
       })
-      .catch((error) =>
-        dispatch(getBooksFailure(error.message)),
-      );
+      .catch((error) => dispatch(getBooksFailure(error.message)));
   };
 }
 
@@ -79,7 +74,9 @@ export function addBookFailure(error) {
 export function addBook(book) {
   return (dispatch) => {
     dispatch(addBookRequest());
-    const { itemId, title, author, category } = book;
+    const {
+      itemId, title, author, category,
+    } = book;
     BookstoreApi.addBook(itemId, title, author, category)
       .then(() => {
         const newBook = {};
@@ -177,7 +174,7 @@ export default function bookReducer(
       return {
         loading: false,
         bookList: Object.fromEntries(
-          Object.entries(state).filter(
+          Object.entries(state.bookList).filter(
             (e) => e[0] !== action.payload,
           ),
         ),

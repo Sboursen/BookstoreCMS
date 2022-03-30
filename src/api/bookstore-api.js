@@ -47,13 +47,15 @@ export default class BookstoreApi {
 
   static async deleteBook(itemId) {
     const bookDeleteEndpoint = `${this.baseURL}/${this.appId}/books/${itemId}`;
+    const data = {};
+    data.item_id = itemId;
 
     const response = await fetch(bookDeleteEndpoint, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: 'false',
+      body: JSON.stringify(data),
     });
 
     if (response.status < 200 || response.status > 299) {

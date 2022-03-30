@@ -26,6 +26,4 @@ const store = createStore(
 
 store.dispatch(bookReducer);
 
-store.subscribe(() => console.log(store.getState()));
-
 export default store;
