@@ -48,10 +48,8 @@ export default function Form() {
       setValid(validity);
     } else {
       const newBook = {
-        id: uuidv4(),
-        chapter: 'Chapter 0',
-        percent: 0,
-        genre: `${category}`,
+        itemId: uuidv4(),
+        category: `${category}`,
         title: `${bookTitle}`,
         author: `${bookAuthor}`,
       };

@@ -1,22 +1,26 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getBooks } from '../../redux/books/books';
 import BookCard from '../../components/book-card/book-card';
 import Form from '../../components/form/from';
 
 export default function Books() {
   const books = useSelector((store) => store.books);
+  const dispatch = useDispatch();
 
-  const bookList = books.map((book) => {
-    const {
-      id, chapter, percent, genre, title, author,
-    } = book;
+  useEffect(() => {
+    dispatch(getBooks());
+  }, []);
 
+  const bookList = Object.keys(books.bookList).map((id) => {
+    const book = books.bookList[id];
+    const { category: genre, title, author } = book[0];
     return (
       <BookCard
         key={id}
         id={id}
-        chapter={chapter}
-        percent={percent}
+        chapter="Chapter 0"
+        percent={0}
         genre={genre}
         title={title}
         author={author}
