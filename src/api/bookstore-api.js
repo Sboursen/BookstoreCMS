@@ -38,7 +38,7 @@ export default class BookstoreApi {
       body: JSON.stringify(data),
     });
 
-    if (response.status !== 200) {
+    if (response.status < 200 || response.status > 299) {
       throw new Error(
         `Can not add the book with the id: ${itemId}`,
       );
@@ -56,7 +56,7 @@ export default class BookstoreApi {
       body: 'false',
     });
 
-    if (response.status !== 200) {
+    if (response.status < 200 || response.status > 299) {
       throw new Error(
         `Can not delete the book with the id: ${itemId}`,
       );
