@@ -49,7 +49,9 @@ export function getBooks() {
       .then((data) => {
         dispatch(getBooksSuccess(data));
       })
-      .catch((error) => dispatch(getBooksFailure(error.message)));
+      .catch((error) =>
+        dispatch(getBooksFailure(error.message)),
+      );
   };
 }
 
@@ -62,14 +64,14 @@ export function addBookRequest() {
 
 export function addBookSuccess(book) {
   return {
-    type: GET_BOOKS_SUCCESS,
+    type: ADD_BOOK_SUCCESS,
     payload: book,
   };
 }
 
 export function addBookFailure(error) {
   return {
-    type: GET_BOOKS_FAILURE,
+    type: ADD_BOOK_FAILURE,
     payload: error,
   };
 }
@@ -77,9 +79,7 @@ export function addBookFailure(error) {
 export function addBook(book) {
   return (dispatch) => {
     dispatch(addBookRequest());
-    const {
-      itemId, title, author, category,
-    } = book;
+    const { itemId, title, author, category } = book;
     BookstoreApi.addBook(itemId, title, author, category)
       .then(() => {
         const newBook = {};
@@ -124,7 +124,7 @@ export default function bookReducer(
     case ADD_BOOK_SUCCESS:
       return {
         loading: false,
-        bookList: { ...state, ...action.payload },
+        bookList: { ...state.bookList, ...action.payload },
         error: '',
       };
 
