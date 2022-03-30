@@ -191,23 +191,3 @@ export default function bookReducer(
       return state;
   }
 }
-
-// {
-//   "item_id": "item2",
-//   "category": "Science Fiction",
-//   "title": "Dune",
-//   "author": "Frank Herbert",
-// };
-// {
-//   "item_id": "item3",
-//   "category": "Economy",
-//   "title": "Capital in the Twenty-First Century",
-//   "author": "Suzanne Collins",
-// };
-
-// {
-//   "item_id": "item1",
-//   "category": "Action",
-//   "title": "The Hunger Games",
-//   "author": "Suzanne Collins",
-// };
