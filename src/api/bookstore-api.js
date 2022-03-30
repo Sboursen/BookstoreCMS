@@ -1,26 +1,31 @@
 export default class BookstoreApi {
-  constructor() {
-    this.baseURL =
-      'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi';
-    this.appId = 'SlfJfFjYZXGtmphahG2T';
-  }
+  static baseURL =
+    'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps';
+
+  static appId = 'SlfJfFjYZXGtmphahG2T';
 
   static async getBooks() {
     const booksEndpoint = `${this.baseURL}/${this.appId}/books`;
-
     const response = await fetch(booksEndpoint, {
       method: 'GET',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json; charset=utf-8',
       },
+      mode: 'cors',
+      cache: 'default',
     });
+
     if (response.status !== 200) {
       throw new Error(
         'Can not fetch the books with the provided Endpoint',
       );
     }
-    const data = await response.json;
-    return data;
+    try {
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      throw new Error('Can not get JSON from the response');
+    }
   }
 
   static async addBook(itemId, title, author, category) {

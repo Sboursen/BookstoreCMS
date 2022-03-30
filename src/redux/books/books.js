@@ -18,7 +18,7 @@ const DELETE_BOOK_FAILURE =
 
 const initialState = {
   loading: false,
-  bookList: [],
+  bookList: {},
   error: '',
 };
 
@@ -46,8 +46,14 @@ export function getBooks() {
   return (dispatch) => {
     dispatch(getBooksRequest());
     BookstoreApi.getBooks()
-      .then((data) => dispatch(getBooksSuccess(data)))
-      .catch((error) => dispatch(getBooksFailure(error)));
+      .then((data) => {
+        console.log('Hi data', data);
+        const ids = Object.keys(data);
+        dispatch(getBooksSuccess(ids));
+      })
+      .catch((error) =>
+        dispatch(getBooksFailure(error.message)),
+      );
   };
 }
 
