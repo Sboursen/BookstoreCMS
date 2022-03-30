@@ -46,9 +46,7 @@ export function getBooks() {
       .then((data) => {
         dispatch(getBooksSuccess(data));
       })
-      .catch((error) =>
-        dispatch(getBooksFailure(error.message)),
-      );
+      .catch((error) => dispatch(getBooksFailure(error.message)));
   };
 }
 
@@ -76,7 +74,9 @@ export function addBookFailure(error) {
 export function addBook(book) {
   return (dispatch) => {
     dispatch(addBookRequest());
-    const { itemId, title, author, category } = book;
+    const {
+      itemId, title, author, category,
+    } = book;
     BookstoreApi.addBook(itemId, title, author, category)
       .then(() => {
         const newBook = {};
