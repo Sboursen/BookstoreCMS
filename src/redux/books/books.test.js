@@ -1,67 +1,36 @@
-import { createStore } from '@reduxjs/toolkit';
-import bookReducer, { addBook, removeBook } from './books';
+import {
+  createStore,
+  applyMiddleware,
+} from '@reduxjs/toolkit';
+import thunk from 'redux-thunk';
+import bookReducer, {
+  getBooksRequest,
+} from './books';
 
-describe('bookReducer', () => {
-  it('should return an array that contains 3 objects as initially', () => {
-    const store = createStore(bookReducer);
+const initialState = {
+  loading: false,
+  bookList: [],
+  error: '',
+};
 
-    expect(store.getState()).toHaveLength(3);
-  });
-
-  it('should handle adding a single book', () => {
-    const store = createStore(bookReducer);
-
-    store.dispatch(addBook({ id: 1, title: 'books 1' }));
-
-    expect(store.getState()[3]).toEqual(
-      { id: 1, title: 'books 1' },
+describe('getBooksRequest', () => {
+  it('should return the initial state initially', () => {
+    const store = createStore(
+      bookReducer,
+      applyMiddleware(thunk),
     );
+
+    expect(store.getState()).toEqual(initialState);
   });
 
-  it('should handle adding multiple books', () => {
-    const store = createStore(bookReducer);
+  it('should return an object that have a property loading set to true', () => {
+    const store = createStore(
+      bookReducer,
+      applyMiddleware(thunk),
+    );
 
-    store.dispatch(addBook({ id: 1, title: 'books 1' }));
-    store.dispatch(addBook({ id: 2, title: 'books 2' }));
-    store.dispatch(addBook({ id: 3, title: 'books 3' }));
+    store.dispatch(getBooksRequest());
 
-    expect(store.getState().slice(3)).toEqual([
-      { id: 1, title: 'books 1' },
-      { id: 2, title: 'books 2' },
-      { id: 3, title: 'books 3' },
-    ]);
-  });
-
-  it('should handle removing a single book', () => {
-    const store = createStore(bookReducer);
-
-    store.dispatch(addBook({ id: 1, title: 'books 1' }));
-    store.dispatch(addBook({ id: 2, title: 'books 2' }));
-    store.dispatch(addBook({ id: 3, title: 'books 3' }));
-
-    store.dispatch(removeBook(2));
-
-    expect(store.getState().slice(3)).toEqual([
-      { id: 1, title: 'books 1' },
-      { id: 3, title: 'books 3' },
-    ]);
-  });
-
-  it('should handle an alternative series of adding books and removing them', () => {
-    const store = createStore(bookReducer);
-
-    store.dispatch(addBook({ id: 1, title: 'books 1' }));
-    store.dispatch(addBook({ id: 2, title: 'books 2' }));
-    store.dispatch(removeBook(2));
-    store.dispatch(addBook({ id: 3, title: 'books 3' }));
-    store.dispatch(addBook({ id: 4, title: 'books 4' }));
-    store.dispatch(addBook({ id: 5, title: 'books 5' }));
-    store.dispatch(removeBook(4));
-
-    expect(store.getState().slice(3)).toEqual([
-      { id: 1, title: 'books 1' },
-      { id: 3, title: 'books 3' },
-      { id: 5, title: 'books 5' },
-    ]);
+    expect(store.getState().loading).toBeTruthy();
   });
 });

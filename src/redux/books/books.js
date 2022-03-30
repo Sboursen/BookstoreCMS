@@ -42,6 +42,15 @@ export function getBooksFailure(error) {
   };
 }
 
+export function getBooks() {
+  return (dispatch) => {
+    dispatch(getBooksRequest());
+    BookstoreApi.getBooks()
+      .then((data) => dispatch(getBooksSuccess(data)))
+      .catch((error) => dispatch(getBooksFailure(error)));
+  };
+}
+
 export default function bookReducer(
   state = initialState,
   action,
