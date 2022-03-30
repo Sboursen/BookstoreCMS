@@ -6,14 +6,7 @@ export default class BookstoreApi {
 
   static async getBooks() {
     const booksEndpoint = `${this.baseURL}/${this.appId}/books`;
-    const response = await fetch(booksEndpoint, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8',
-      },
-      mode: 'cors',
-      cache: 'default',
-    });
+    const response = await fetch(booksEndpoint);
 
     if (response.status !== 200) {
       throw new Error(

@@ -12,29 +12,21 @@ export default function Books() {
     dispatch(getBooks());
   }, []);
 
-  const bookList = Object.keys(books.bookList).map(
-    (book) => {
-      const id = Object.keys(book)[0];
-
-      const {
-        category: genre,
-        title,
-        author,
-      } = book[id][0];
-
-      return (
-        <BookCard
-          key={id}
-          id={id}
-          chapter="Chapter 0"
-          percent={0}
-          genre={genre}
-          title={title}
-          author={author}
-        />
-      );
-    },
-  );
+  const bookList = Object.keys(books.bookList).map((id) => {
+    const book = books.bookList[id];
+    const { category: genre, title, author } = book[0];
+    return (
+      <BookCard
+        key={id}
+        id={id}
+        chapter="Chapter 0"
+        percent={0}
+        genre={genre}
+        title={title}
+        author={author}
+      />
+    );
+  });
 
   if (!bookList.length) {
     return (
