@@ -6,9 +6,9 @@ import Progress from '../progress/progress';
 export default function BookProgress(props) {
   const { percent, chapter } = props;
   return (
-    <div className="flex gap-24">
+    <div className="flex flex-col gap-12 lg:flex-row lg:gap-24">
       <Progress percent={percent} />
-      <div className="border-l-2" />
+      <div className="border-b-2 lg:border-l-2" />
       <ChapterProgress chapter={chapter} />
     </div>
   );
