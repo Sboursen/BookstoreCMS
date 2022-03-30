@@ -28,9 +28,9 @@ export default function Form() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
-      !isValid(category)
-      || !isValid(bookTitle)
-      || !isValid(bookAuthor)
+      !isValid(category) ||
+      !isValid(bookTitle) ||
+      !isValid(bookAuthor)
     ) {
       const validity = [];
       [
