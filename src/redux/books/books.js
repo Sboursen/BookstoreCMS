@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
 import BookstoreApi from '../../api/bookstore-api';
 
 const GET_BOOKS_REQUEST = 'bookstore-cms/books/GET_REQUEST';
@@ -9,12 +8,12 @@ const ADD_BOOK_REQUEST = 'bookstore-cms/books/ADD_REQUEST';
 const ADD_BOOK_SUCCESS = 'bookstore-cms/books/ADD_SUCCESS';
 const ADD_BOOK_FAILURE = 'bookstore-cms/books/ADD_FAILURE';
 
-const DELETE_BOOK_REQUEST =
-  'bookstore-cms/books/DELETE_REQUEST';
-const DELETE_BOOK_SUCCESS =
-  'bookstore-cms/books/DELETE_SUCCESS';
-const DELETE_BOOK_FAILURE =
-  'bookstore-cms/books/DELETE_FAILURE';
+// const DELETE_BOOK_REQUEST =
+//   'bookstore-cms/books/DELETE_REQUEST';
+// const DELETE_BOOK_SUCCESS =
+//   'bookstore-cms/books/DELETE_SUCCESS';
+// const DELETE_BOOK_FAILURE =
+//   'bookstore-cms/books/DELETE_FAILURE';
 
 const initialState = {
   loading: false,
@@ -22,6 +21,7 @@ const initialState = {
   error: '',
 };
 
+// get book action creators
 export function getBooksRequest() {
   return {
     type: GET_BOOKS_REQUEST,
@@ -49,17 +49,57 @@ export function getBooks() {
       .then((data) => {
         dispatch(getBooksSuccess(data));
       })
-      .catch((error) =>
-        dispatch(getBooksFailure(error.message)),
-      );
+      .catch((error) => dispatch(getBooksFailure(error.message)));
   };
 }
+
+// add book action creators
+export function addBookRequest() {
+  return {
+    type: ADD_BOOK_REQUEST,
+  };
+}
+
+export function addBookSuccess(book) {
+  return {
+    type: GET_BOOKS_SUCCESS,
+    payload: book,
+  };
+}
+
+export function addBookFailure(error) {
+  return {
+    type: GET_BOOKS_FAILURE,
+    payload: error,
+  };
+}
+
+export function addBook(book) {
+  return (dispatch) => {
+    dispatch(addBookRequest());
+    const {
+      itemId, title, author, category,
+    } = book;
+    BookstoreApi.addBook(itemId, title, author, category)
+      .then(() => {
+        const newBook = {};
+        newBook[itemId] = [{ title, author, category }];
+        dispatch(addBookSuccess(newBook));
+      })
+      .catch((error) => {
+        dispatch(addBookFailure(error.message));
+      });
+  };
+}
+
+// book reducer
 
 export default function bookReducer(
   state = initialState,
   action,
 ) {
   switch (action.type) {
+    // get book
     case GET_BOOKS_REQUEST:
       return { ...state, loading: true };
 
@@ -69,12 +109,32 @@ export default function bookReducer(
         bookList: action.payload,
         error: '',
       };
+
     case GET_BOOKS_FAILURE:
       return {
         ...state,
         loading: false,
         error: action.payload,
       };
+
+    // add book
+    case ADD_BOOK_REQUEST:
+      return { ...state, loading: true };
+
+    case ADD_BOOK_SUCCESS:
+      return {
+        loading: false,
+        bookList: { ...state, ...action.payload },
+        error: '',
+      };
+
+    case ADD_BOOK_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+
     default:
       return state;
   }
