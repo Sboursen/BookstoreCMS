@@ -28,9 +28,9 @@ export default function Form() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
-      !isValid(category)
-      || !isValid(bookTitle)
-      || !isValid(bookAuthor)
+      !isValid(category) ||
+      !isValid(bookTitle) ||
+      !isValid(bookAuthor)
     ) {
       const validity = [];
       [
@@ -73,8 +73,11 @@ export default function Form() {
       <h2 className="text-xl font-bold text-gray-500 ">
         ADD NEW BOOK
       </h2>
-      <div className="flex flex-row justify-between items-center">
-        <label htmlFor="title" className="h-8 w-1/5">
+      <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
+        <label
+          htmlFor="title"
+          className="h-8 w-full lg:w-1/5"
+        >
           <input
             className={`h-full w-full shadow-inner px-6 border-2 rounded${
               valid[0] ? '' : 'border-2 border-red-500'
@@ -88,7 +91,10 @@ export default function Form() {
             onBlur={handleChange}
           />
         </label>
-        <label htmlFor="author" className="h-8 w-1/5">
+        <label
+          htmlFor="author"
+          className="h-8 w-full lg:w-1/5"
+        >
           <input
             className={`h-full w-full shadow-inner px-6 border-2 rounded${
               valid[1] ? '' : 'border-2 border-red-500'
@@ -102,7 +108,10 @@ export default function Form() {
             onBlur={handleChange}
           />
         </label>
-        <label htmlFor="category" className="h-8 w-1/5">
+        <label
+          htmlFor="category"
+          className="h-8 w-full lg:w-1/5"
+        >
           <select
             name="category"
             id="category"
