@@ -22,9 +22,33 @@ const initialState = {
   error: '',
 };
 
+export function getBooksRequest() {
+  return {
+    type: GET_BOOKS_REQUEST,
+  };
+}
 
+export function getBooksSuccess(bookList) {
+  return {
+    type: GET_BOOKS_SUCCESS,
+    payload: bookList,
+  };
+}
 
+export function getBooksFailure(error) {
+  return {
+    type: GET_BOOKS_FAILURE,
+    payload: error,
+  };
+}
 
+// export function addBook(book) {
+//   return { type: ADD_BOOK, book };
+// }
+
+// export function removeBook(id) {
+//   return { type: REMOVE_BOOK, id };
+// }
 
 // const ADD_BOOK = 'bookstore-cms/books/ADD';
 // const REMOVE_BOOK = 'bookstore-cms/books/REMOVE';
