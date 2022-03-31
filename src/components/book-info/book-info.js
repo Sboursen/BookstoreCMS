@@ -4,9 +4,7 @@ import { useDispatch } from 'react-redux';
 import { deleteBook } from '../../redux/books/books';
 
 export default function BookInfo(props) {
-  const {
-    genre, title, author, id,
-  } = props;
+  const { genre, title, author, id } = props;
   const dispatch = useDispatch();
 
   const handleRemove = () => {
@@ -16,33 +14,35 @@ export default function BookInfo(props) {
   return (
     <div className="flex flex-col gap-6 justify-between items-start w-72 ">
       <div className="flex flex-col gap-0">
-        <span className="font-bold text-sm text-gray-500">
+        <span className="font-bold text-sm text-black-two opacity-50">
           {genre}
         </span>
-        <h3 className=" text-2xl font-bold">{title}</h3>
-        <span className=" text-lg font-light text-sky-600">
+        <h3 className="text-xl font-bold font-roboto">
+          {title}
+        </h3>
+        <span className="text-sm font-light text-azure font-roboto">
           {author}
         </span>
       </div>
       <div className="flex gap-2 justify-center items-center text-gray-300">
         <button
           type="button"
-          className="text-sky-600 cursor-pointer"
+          className="text-sm font-light text-azure font-roboto cursor-pointer"
         >
           Comments
         </button>
-        <span>|</span>
+        <span className="text-grey-border">|</span>
         <button
-          className="text-sky-600 cursor-pointer"
+          className="text-sm font-light text-azure font-roboto cursor-pointer"
           type="button"
           onClick={handleRemove}
         >
           Remove
         </button>
-        <span>|</span>
+        <span className="text-grey-border">|</span>
         <button
           type="button"
-          className="text-sky-600 cursor-pointer"
+          className="text-sm font-light text-azure font-roboto cursor-pointer"
         >
           Edit
         </button>

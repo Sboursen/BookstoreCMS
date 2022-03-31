@@ -76,7 +76,7 @@ export default function Form() {
       <div className="flex flex-col lg:flex-row justify-between items-center gap-6 text-base">
         <label
           htmlFor="title"
-          className="h-8 w-full lg:w-1/5"
+          className="h-12 w-full lg:w-1/5"
         >
           <input
             className={`h-full w-full shadow-inner border-grey-border placeholder:text-pinkish-grey px-4 py-3 border-2 rounded${
@@ -93,7 +93,7 @@ export default function Form() {
         </label>
         <label
           htmlFor="author"
-          className="h-8 w-full lg:w-1/5"
+          className="h-12 w-full lg:w-1/5"
         >
           <input
             className={`h-full w-full shadow-inner border-grey-border placeholder:text-pinkish-grey px-4 py-3 border-2 rounded${
@@ -110,7 +110,7 @@ export default function Form() {
         </label>
         <label
           htmlFor="category"
-          className="h-8 w-full lg:w-1/5"
+          className="h-12 w-full lg:w-1/5"
         >
           <select
             name="category"
@@ -126,12 +126,43 @@ export default function Form() {
             <option disabled value="">
               Category
             </option>
-            <option value="action">Action</option>
-            <option value="sci-fi">Sci-fi</option>
-            <option value="romance">Romance</option>
-            <option value="adventure">Adventure</option>
-            <option value="history">History</option>
-            <option value="philosophy">Philosophy</option>
+            <option
+              className=" text-black-two"
+              value="action"
+            >
+              Action
+            </option>
+
+            <option
+              className=" text-black-two"
+              value="sci-fi"
+            >
+              Sci-fi
+            </option>
+            <option
+              className=" text-black-two"
+              value="romance"
+            >
+              Romance
+            </option>
+            <option
+              className=" text-black-two"
+              value="adventure"
+            >
+              Adventure
+            </option>
+            <option
+              className=" text-black-two"
+              value="history"
+            >
+              History
+            </option>
+            <option
+              className=" text-black-two"
+              value="philosophy"
+            >
+              Philosophy
+            </option>
           </select>
         </label>
         <Button

@@ -2,6 +2,9 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      screens: {
+        'md-plus': '992px',
+      },
       colors: {
         azure: '#0290ff',
         'black-two': '#121212',
