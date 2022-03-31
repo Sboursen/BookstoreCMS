@@ -32,7 +32,7 @@ To get a local copy up and running follow these simple example steps.
 
 #### Use the live Website
 
-[BookStore Website](https://sboursen.github.io/bookstorecms/)
+[BookStore Website](https://sboursen.github.io/BookstoreCMS/)
 
 ### **Option 2**
 
