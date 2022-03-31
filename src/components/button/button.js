@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export default function Button({ ...props }) {
   return (
     <button
-      className={`text-dirty-white bg-azure rounded w-fit ${props.twClasses}`}
+      className={`text-dirty-white bg-azure rounded w-fit font-light font-roboto ${props.twClasses}`}
       type={props.type === 'submit' ? 'submit' : 'button'}
       onClick={props.handleClick}
     >
@@ -16,7 +16,7 @@ export default function Button({ ...props }) {
 Button.defaultProps = {
   type: 'button',
   handleClick: () => {},
-  twClasses: 'px-5 py-2 text-base',
+  twClasses: 'px-5 py-2 text-sm',
 };
 
 Button.propTypes = {
