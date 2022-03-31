@@ -4,7 +4,7 @@ import { ImUser } from 'react-icons/im';
 
 export default function Header() {
   return (
-    <header className="flex justify-between py-6 px-24 w-full shadow-md min-h-24">
+    <header className="flex justify-between p-6 md:px-24 w-full shadow-md min-h-24">
       <nav className="flex gap-10 flex-col md:flex-row">
         <Link to="/">
           <h1 className="h-full flex  items-center text-3xl font-bold text-azure mr-2">

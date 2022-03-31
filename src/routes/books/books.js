@@ -30,7 +30,7 @@ export default function Books() {
 
   if (!bookList.length) {
     return (
-      <main className="flex flex-col mb-24 bg-[#fafafa]">
+      <main className="flex flex-col mb-64 px-6 md:px-24 gap-10 bg-dirty-white">
         <section className="book-card flex justify-center items-center rounded-sm p-12 mx-8 my-4 shadow-md h-48">
           <div className="text-3xl font-bold">
             Please add more books
@@ -41,7 +41,7 @@ export default function Books() {
     );
   }
   return (
-    <main className="flex flex-col mb-24 bg-[#fafafa]">
+    <main className="flex flex-col mb-64 px-6 md:px-24 gap-10 bg-dirty-white">
       {bookList}
       <Form />
     </main>
