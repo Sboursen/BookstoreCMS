@@ -13,14 +13,17 @@ export default function Books() {
   }, []);
 
   const bookList = Object.keys(books.bookList).map((id) => {
+    const maxChapter = 48;
     const book = books.bookList[id];
     const { category: genre, title, author } = book[0];
+    const randomProgress = Math.random();
+    const currentChapter = maxChapter * randomProgress;
     return (
       <BookCard
         key={id}
         id={id}
-        chapter="Chapter 0"
-        percent={0}
+        chapter={`Chapter ${Math.floor(currentChapter)}`}
+        percent={Math.floor(100 * randomProgress)}
         genre={genre}
         title={title}
         author={author}
@@ -30,8 +33,8 @@ export default function Books() {
 
   if (!bookList.length) {
     return (
-      <main className="flex flex-col mb-24 bg-[#fafafa]">
-        <section className="book-card flex justify-center items-center rounded-sm p-12 mx-8 my-4 shadow-md h-48">
+      <main className="flex flex-col pb-64 pt-12 px-6 md:px-24 gap-10 bg-dirty-white">
+        <section className="book-card flex justify-center items-center rounded-sm p-12 shadow-md h-48">
           <div className="text-3xl font-bold">
             Please add more books
           </div>
@@ -41,7 +44,7 @@ export default function Books() {
     );
   }
   return (
-    <main className="flex flex-col mb-24 bg-[#fafafa]">
+    <main className="flex flex-col pb-64 pt-12 px-6 md:px-24 gap-4 bg-dirty-white">
       {bookList}
       <Form />
     </main>

@@ -15,12 +15,12 @@
 - [x] Milestone 1: **Initialize project with components**
 - [x] Milestone 2: **Add reducers and actions**
 - [x] Milestone 3: **Use Redux in React components**
-- [ ] Milestone 4: **Connect to API**
-- [ ] Milestone 5: **Custom Styling**
+- [x] Milestone 4: **Connect to API**
+- [x] Milestone 5: **Custom Styling**
 
 ## sneak peek
 
-![Application screenshot](./public/images/appscreenshot.png)
+![Application GIF](./public/images/bookstorecms.gif)
 
 ## Getting Started
 

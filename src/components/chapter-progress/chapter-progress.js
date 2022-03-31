@@ -11,8 +11,12 @@ export default function ChapterProgress(props) {
 
   return (
     <div className="flex flex-col gap-2 justify-center items-start w-64 ">
-      <span>CURRENT CHAPTER</span>
-      <span>{chapter}</span>
+      <span className="text-black-two font-roboto font-light text-sm opacity-50">
+        CURRENT CHAPTER
+      </span>
+      <span className="text-black-two font-roboto font-light">
+        {chapter}
+      </span>
       <Button text="UPDATE PROGRESS" />
     </div>
   );

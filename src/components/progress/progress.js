@@ -30,8 +30,10 @@ export default function Progress(props) {
         />
       </div>
       <div className="flex flex-col justify-center">
-        <span className="text-2xl">{`${percentage}%`}</span>
-        <span>Completed</span>
+        <span className="text-4xl">{`${percentage}%`}</span>
+        <span className="text-sm opacity-50">
+          Completed
+        </span>
       </div>
     </div>
   );

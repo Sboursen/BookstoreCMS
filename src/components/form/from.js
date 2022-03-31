@@ -68,15 +68,18 @@ export default function Form() {
     <form
       onSubmit={handleSubmit}
       action="submit"
-      className="flex mt-6 flex-col gap-6 justify-between rounded-sm p-12 mx-8 my-4 shadow-md"
+      className="flex mt-10 flex-col gap-7 justify-between py-7 border-t-2 border-t-grey-border"
     >
-      <h2 className="text-xl font-bold text-gray-500 ">
+      <h2 className="text-xl font-bold text-warm-grey ">
         ADD NEW BOOK
       </h2>
-      <div className="flex flex-row justify-between items-center">
-        <label htmlFor="title" className="h-8 w-1/5">
+      <div className="flex flex-col lg:flex-row justify-between items-center gap-6 text-base">
+        <label
+          htmlFor="title"
+          className="h-12 w-full lg:w-1/5"
+        >
           <input
-            className={`h-full w-full shadow-inner px-6 border-2 rounded${
+            className={`h-full w-full shadow-inner border-grey-border placeholder:text-pinkish-grey px-4 py-3 border-2 rounded${
               valid[0] ? '' : 'border-2 border-red-500'
             }`}
             type="text"
@@ -88,9 +91,12 @@ export default function Form() {
             onBlur={handleChange}
           />
         </label>
-        <label htmlFor="author" className="h-8 w-1/5">
+        <label
+          htmlFor="author"
+          className="h-12 w-full lg:w-1/5"
+        >
           <input
-            className={`h-full w-full shadow-inner px-6 border-2 rounded${
+            className={`h-full w-full shadow-inner border-grey-border placeholder:text-pinkish-grey px-4 py-3 border-2 rounded${
               valid[1] ? '' : 'border-2 border-red-500'
             }`}
             type="text"
@@ -102,11 +108,14 @@ export default function Form() {
             onBlur={handleChange}
           />
         </label>
-        <label htmlFor="category" className="h-8 w-1/5">
+        <label
+          htmlFor="category"
+          className="h-12 w-full lg:w-1/5"
+        >
           <select
             name="category"
             id="category"
-            className={`h-full w-full text-center shadow-inner rounded  ${
+            className={`h-full w-full px-4 bg-white text-pinkish-grey border-gray-50 shadow-inner rounded  ${
               valid[2] ? '' : 'border-2 border-red-500'
             }`}
             value={category}
@@ -117,18 +126,49 @@ export default function Form() {
             <option disabled value="">
               Category
             </option>
-            <option value="action">Action</option>
-            <option value="sci-fi">Sci-fi</option>
-            <option value="romance">Romance</option>
-            <option value="adventure">Adventure</option>
-            <option value="history">History</option>
-            <option value="philosophy">Philosophy</option>
+            <option
+              className=" text-black-two"
+              value="action"
+            >
+              Action
+            </option>
+
+            <option
+              className=" text-black-two"
+              value="sci-fi"
+            >
+              Sci-fi
+            </option>
+            <option
+              className=" text-black-two"
+              value="romance"
+            >
+              Romance
+            </option>
+            <option
+              className=" text-black-two"
+              value="adventure"
+            >
+              Adventure
+            </option>
+            <option
+              className=" text-black-two"
+              value="history"
+            >
+              History
+            </option>
+            <option
+              className=" text-black-two"
+              value="philosophy"
+            >
+              Philosophy
+            </option>
           </select>
         </label>
         <Button
           type="submit"
           text="ADD BOOK"
-          twClasses="px-12 py-1 text-xl font-bold"
+          twClasses="px-12 py-3 text-base font-bold"
         />
       </div>
     </form>
