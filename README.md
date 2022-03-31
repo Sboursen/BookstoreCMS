@@ -8,6 +8,7 @@
 ## Built With
 
 - React (CRA)
+- Redux (react-redux)
 - TailwindCss
 
 ## Milestones
@@ -31,7 +32,7 @@ To get a local copy up and running follow these simple example steps.
 
 #### Use the live Website
 
-[Coming soon](https://)
+[BookStore Website](sboursen.github.io/bookstorecms/)
 
 ### **Option 2**
 
