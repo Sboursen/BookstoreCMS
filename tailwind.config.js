@@ -1,7 +1,14 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      azure: '#0290ff',
+      'black-two': '#121212',
+      'cool-blue': '#4386bf',
+      'warm-grey': '#888888',
+      'pinkish-grey': '#c4c4c4',
+      'dirty-white': '#fafafa',
+    },
   },
   plugins: [],
 };
