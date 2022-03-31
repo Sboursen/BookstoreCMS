@@ -28,9 +28,9 @@ export default function Form() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
-      !isValid(category)
-      || !isValid(bookTitle)
-      || !isValid(bookAuthor)
+      !isValid(category) ||
+      !isValid(bookTitle) ||
+      !isValid(bookAuthor)
     ) {
       const validity = [];
       [
@@ -68,18 +68,18 @@ export default function Form() {
     <form
       onSubmit={handleSubmit}
       action="submit"
-      className="flex mt-6 flex-col gap-6 justify-between rounded-sm p-12 mx-8 my-4 shadow-md"
+      className="flex mt-10 flex-col gap-7 justify-between py-7 border-t-2 border-t-grey-border"
     >
-      <h2 className="text-xl font-bold text-gray-500 ">
+      <h2 className="text-xl font-bold text-warm-grey ">
         ADD NEW BOOK
       </h2>
-      <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
+      <div className="flex flex-col lg:flex-row justify-between items-center gap-6 text-base">
         <label
           htmlFor="title"
           className="h-8 w-full lg:w-1/5"
         >
           <input
-            className={`h-full w-full shadow-inner px-6 border-2 rounded${
+            className={`h-full w-full shadow-inner border-grey-border placeholder:text-pinkish-grey px-4 py-3 border-2 rounded${
               valid[0] ? '' : 'border-2 border-red-500'
             }`}
             type="text"
@@ -96,7 +96,7 @@ export default function Form() {
           className="h-8 w-full lg:w-1/5"
         >
           <input
-            className={`h-full w-full shadow-inner px-6 border-2 rounded${
+            className={`h-full w-full shadow-inner border-grey-border placeholder:text-pinkish-grey px-4 py-3 border-2 rounded${
               valid[1] ? '' : 'border-2 border-red-500'
             }`}
             type="text"
@@ -115,7 +115,7 @@ export default function Form() {
           <select
             name="category"
             id="category"
-            className={`h-full w-full text-center shadow-inner rounded  ${
+            className={`h-full w-full px-4 bg-white text-pinkish-grey border-gray-50 shadow-inner rounded  ${
               valid[2] ? '' : 'border-2 border-red-500'
             }`}
             value={category}
@@ -137,7 +137,7 @@ export default function Form() {
         <Button
           type="submit"
           text="ADD BOOK"
-          twClasses="px-12 py-1 text-xl font-bold"
+          twClasses="px-12 py-3 text-base font-bold"
         />
       </div>
     </form>
