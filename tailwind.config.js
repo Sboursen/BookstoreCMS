@@ -11,10 +11,11 @@ module.exports = {
         'dirty-white': '#fafafa',
       },
     },
+    fontFamily: {
+      montserrat: ['Montserrat', 'sans-serif'],
+      roboto: ['"Roboto Slab"', 'serif'],
+    },
   },
-  fontFamily: {
-    montserrat: ['Montserrat', 'sans-serif'],
-    roboto: ['"Roboto Slab"', 'serif'],
-  },
+
   plugins: [],
 };

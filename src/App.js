@@ -8,7 +8,7 @@ export default function App() {
   return (
     <>
       <Header />
-      <main className="w-full h-full">
+      <main className="w-full h-full font-montserrat">
         <Routes>
           <Route path="/" element={<Books />} />
           <Route
