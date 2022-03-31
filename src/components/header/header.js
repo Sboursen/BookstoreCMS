@@ -4,27 +4,27 @@ import { ImUser } from 'react-icons/im';
 
 export default function Header() {
   return (
-    <header className="flex justify-between p-6 w-full shadow-md">
-      <nav className="flex gap-6 flex-col md:flex-row">
+    <header className="flex justify-between py-6 px-24 w-full shadow-md min-h-24">
+      <nav className="flex gap-10 flex-col md:flex-row">
         <Link to="/">
-          <h1 className="h-full flex  items-center text-3xl text-sky-700">
+          <h1 className="h-full flex  items-center text-3xl font-bold text-azure mr-2">
             Bookstore CMS
           </h1>
         </Link>
         <Link to="/">
-          <span className="h-full text-xl flex items-center">
+          <span className="h-full flex items-center text-black-two text-sm">
             BOOKS
           </span>
         </Link>
         <Link to="/categories">
-          <span className="h-full text-xl flex items-center">
+          <span className="h-full flex items-center text-black-two text-sm opacity-50">
             CATEGORIES
           </span>
         </Link>
       </nav>
       <button
         type="button"
-        className="h-full text-3xl flex items-center p-3 text-sky-700 rounded-full border-2 border-gray-300"
+        className="h-11 w-11 text-3xl flex items-center p-2 text-azure rounded-full border-2 border-grey-border"
       >
         <ImUser />
       </button>
