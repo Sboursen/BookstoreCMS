@@ -13,14 +13,17 @@ export default function Books() {
   }, []);
 
   const bookList = Object.keys(books.bookList).map((id) => {
+    const maxChapter = 48;
     const book = books.bookList[id];
     const { category: genre, title, author } = book[0];
+    const randomProgress = Math.random();
+    const currentChapter = maxChapter * randomProgress;
     return (
       <BookCard
         key={id}
         id={id}
-        chapter="Chapter 0"
-        percent={0}
+        chapter={`Chapter ${Math.floor(currentChapter)}`}
+        percent={Math.floor(100 * randomProgress)}
         genre={genre}
         title={title}
         author={author}
